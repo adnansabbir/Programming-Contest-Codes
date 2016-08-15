@@ -1,0 +1,89 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		char mirrors[][] = {{'A','A'},{'E','3'},{'H','H'},{'I','I'},{'J','L'},{'L','J'},{'M','M'},{'O','O'},{'S','2'},{'T','T'},
+		{'U','U'},{'V','V'},{'W','W'},{'X','X'},{'Y','Y'},{'Z','5'},{'1','1'},{'2','S'},{'3','E'},{'5','Z'},{'8','8'}};
+		
+		int mArray[]=new int[100];
+		for(int c=0;c<mirrors.length;c++)
+		{
+			// System.out.println(+" "+mirrors[c][1]);
+			mArray[(int)(mirrors[c][0])]=(int)(mirrors[c][1]);
+			
+		}
+		
+		Scanner scan = new Scanner(System.in);
+		String str;
+		
+		while(scan.hasNext())
+		{
+			str = scan.next();
+			int strlen = str.length();
+			// System.out.println(str.charAt(0));
+			boolean pal = false;
+			
+			if(strlen==1)
+				pal=true;
+			else
+			{
+				for(int c=0;c<strlen/2;c++)
+				{
+					if(str.charAt(c) == str.charAt(strlen-c-1))
+						pal=true;
+					else
+					{
+						pal=false;
+						break;
+					}
+				}
+			}
+			
+			
+			// for(int c=0;c<100;c++)
+			// {
+			// 	if(mArray[c]!=0)
+			// 		{
+			// 			System.out.println((char)c+" "+(char)mArray[c]);
+			// 		}
+			// }
+			
+			boolean mirr = false;
+			for(int c=0;c<((strlen/2)+1);c++)
+			{
+				char temp = str.charAt(c);
+				char temp2 = str.charAt(strlen-1-c);
+				
+				if(mArray[(int)temp]==(int)temp2)
+					mirr=true;
+				else
+					{
+						mirr=false;
+						break;
+					}
+			}
+			
+			String result = "";
+			
+			if(pal && mirr)
+				result=" -- is a mirrored palindrome.";
+			else if (pal)
+				result=" -- is a regular palindrome.";
+			else if (mirr)
+				result=" -- is a mirrored string.";
+			else 
+				result=" -- is not a palindrome.";
+				
+				System.out.println(str+result);
+				System.out.println();
+			
+			
+		}
+	}
+	
+}
