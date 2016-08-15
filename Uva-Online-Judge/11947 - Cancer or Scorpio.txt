@@ -1,0 +1,64 @@
+//This code is written by Adnan Sabbir
+ 
+import java.util.*;
+ 
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scan=new Scanner(System.in);
+		Calendar Date= Calendar.getInstance();
+		//Date.add(Calendar.DATE,20);
+		int T,Month,Day,Year;
+		String startDate; 
+ 
+		T=scan.nextInt();
+ 
+		for(int c=1;c<=T;c++)
+		{
+			startDate = scan.next();
+ 
+			Month=((startDate.charAt(0)-'0')*10)+(startDate.charAt(1)-'0');
+			Day=((startDate.charAt(2)-'0')*10)+(startDate.charAt(3)-'0');
+			Year=((startDate.charAt(4)-'0')*1000)+((startDate.charAt(5)-'0')*100)+((startDate.charAt(6)-'0')*10)+(startDate.charAt(7)-'0');
+ 
+			Date.set(Year,Month-1,Day);
+			Date.add(Calendar.DATE,40*7);
+ 
+			Month =Date.get(Calendar.MONTH)+1;
+			Day =Date.get(Calendar.DATE);
+			Year =Date.get(Calendar.YEAR);
+ 
+		String zodiac="";
+ 
+		if((Month==1 && Day>20) || (Month==2 && Day<20))
+			zodiac=("aquarius");
+		else if((Month==2 && Day>=20) || (Month==3 && Day<=20))
+			zodiac=("pisces");
+		else if((Month==3 && Day>=21) || (Month==4 && Day<=20))
+			zodiac=("aries");
+		else if((Month==4 && Day>=21) || (Month==5 && Day<=21))
+			zodiac=("taurus");
+		else if((Month==5 && Day>=22) || (Month==6 && Day<=21))
+			zodiac=("gemini");
+		else if((Month==6 && Day>=22) || (Month==7 && Day<=22))
+			zodiac=("cancer");
+		else if((Month==7 && Day>=23) || (Month==8 && Day<=21))
+			zodiac=("leo");
+		else if((Month==8 && Day>=22) || (Month==9 && Day<=23))
+			zodiac=("virgo");
+		else if((Month==9 && Day>=24) || (Month==10 && Day<=23))
+			zodiac=("libra");
+		else if((Month==10 && Day>=24) || (Month==11 && Day<=22))
+			zodiac=("scorpio");
+		else if((Month==11 && Day>=23) || (Month==12 && Day<=22))
+			zodiac=("sagittarius");
+		else if((Month==12 && Day>=23) || (Month==1 && Day<=20))
+			zodiac=("capricorn");
+ 
+			//System.out.println(Month+"\t"+Day+"\t"+Year+zodiac);
+			System.out.printf("%d %02d/%02d/%04d %s\n",c,Month,Day,Year,zodiac);
+		}
+	}
+}

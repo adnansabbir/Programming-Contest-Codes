@@ -1,0 +1,29 @@
+//This code is written by Adnan Sabbir
+
+import java.util.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Calendar cal = Calendar.getInstance();
+		Scanner scan = new Scanner(System.in);
+		
+		while(true)
+		{
+			int N,Day,Month,Year;
+			N=scan.nextInt();
+			Day=scan.nextInt();
+			Month=scan.nextInt();
+			Year=scan.nextInt();
+			if(N+Day+Month+Year==0) break;
+			
+			cal.set(Year,Month-1,Day);
+			cal.add(Calendar.DATE,N);
+			
+			System.out.printf("%d %d %d\n",cal.get(Calendar.DATE),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
+		}
+		
+	}
+}
